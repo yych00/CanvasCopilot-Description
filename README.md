@@ -1,4 +1,4 @@
-﻿# Canvas Copilot
+# Canvas Copilot
 
 <p align="center">
   <b>基于大模型的 Canvas LMS & EchoVideo 沉浸式课程智能学习助手</b><br>
@@ -39,7 +39,11 @@
 * **面板独立配置**：支持为【概览】、【笔记】、【课件】、【助教】、【习题】5 个独立功能面板分别配置专属模型与思考深度（例如：笔记使用 Gemini 高速提炼，习题使用 DeepSeek-R1 深度求解）。
 * **BYOK 纯净模式**：用户自备 API Key，无强制订阅门槛，直连官方 API。
 
-### 5. 📂 本地工作区联动与绝对隐私
+### 5. 🎓 全球高校 Canvas 动态授权与全面支持
+* **预设即用**：预置支持墨尔本大学 (Unimelb)、悉尼大学 (USYD)、皇家墨尔本理工 (RMIT) 及 EchoVideo 平台。
+* **全球高校动态接入**：独创【高校与站点管理】，支持全球任意大学学生在设置中一键添加本校 Canvas 域名（如 `canvas.harvard.edu` 等），遵循最小权限原则动态按需授权。
+
+### 6. 📂 本地工作区联动与绝对隐私
 * **本地文件夹挂载**：通过 Web File System Access API 绑定本地学习目录（如 Obsidian 库），自动按 `课程代码/` 规范归档笔记、字幕与配图。
 * **100% 本地化隐私**：无任何自建数据收集服务器，不收集任何学生账号密码、学号、Cookie 或个人隐私；所有配置与临时缓存存储在本地 `IndexedDB` 与 `chrome.storage.local`。
 
@@ -100,11 +104,13 @@ Canvas Copilot 严格遵守最小权限原则：
 * `sidePanel`：用于承载浏览器右侧常驻交互侧边栏。
 * `downloads`：用于支持导出 Markdown 笔记、字幕 TXT 及 Quiz 试题文件。
 * `scripting` & `tabs`：仅在用户主动操作时与当前课程页面通信并提取公开内容。
+* `activeTab`：允许用户点击工具栏图标或操作按钮时临时与活动页面建立通信。
+* `optional_host_permissions`：用于支持学生在设置中按需添加并动态授权其所在高校的 Canvas LMS 域名。
 * `host_permissions`：
-  - 高校 Canvas LMS 与 Echo360 域名：用于提取课件、题目与字幕数据。
+  - 预设高校 Canvas LMS 与 Echo360 域名：用于提取课件、题目与字幕数据。
   - 大模型官方 API 端点：仅用于直连用户配置的大模型服务。
 
-详细隐私政策请参阅 [PRIVACY.md](PRIVACY.md)。
+详细隐私政策请参阅 [PRIVACY.md](file:///e:/code/browser/canvas_copilot/PRIVACY.md)。
 
 ---
 
@@ -115,4 +121,4 @@ Canvas Copilot 严格遵守最小权限原则：
 * [markdown-it-texmath](https://github.com/goessner/markdown-it-texmath) - LaTeX 数学公式扩展 (MIT License)
 * [Temml](https://github.com/ronkok/Temml) - 轻量快速的 MathML / TeX 数学排版库 (MIT License)
 
-完整第三方开源许可说明详见 [NOTICES.txt](NOTICES.txt)。
+完整第三方开源许可说明详见 [NOTICES.txt](file:///e:/code/browser/canvas_copilot/extension_canvas_copilot/NOTICES.txt)。

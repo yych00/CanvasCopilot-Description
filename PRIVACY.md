@@ -38,8 +38,10 @@ The Extension requests only the minimum permissions necessary to function:
 - `sidePanel`: Used to display the persistent, non-intrusive split-screen study workspace alongside your Canvas course or video player.
 - `downloads`: Used to enable one-click export of Markdown notes, subtitle TXT files, and Quiz problem packages to your local machine.
 - `scripting` & `tabs`: Used strictly to communicate with the active Canvas/Echo360 tab when you request course analysis or transcript extraction.
+- `activeTab`: Used to grant temporary access to the active page when you click the extension icon to launch the side panel.
+- `optional_host_permissions` (`*://*/*`): Used strictly to support user-initiated, dynamic authorization of custom university Canvas LMS domains (e.g., `canvas.harvard.edu`, `canvas.monash.edu`). Permission is requested on-demand only after explicit user confirmation in the settings.
 - `host_permissions`:
-  - Canvas LMS & EchoVideo domains (`canvas.lms.unimelb.edu.au`, `canvas.sydney.edu.au`, `rmit.instructure.com`, `echo360.net.au`): Required to detect course pages, extract public subtitles, and parse quiz structures.
+  - Preset Canvas LMS & EchoVideo domains (`canvas.lms.unimelb.edu.au`, `canvas.sydney.edu.au`, `rmit.instructure.com`, `echo360.net.au`): Required to detect course pages, extract public subtitles, and parse quiz structures.
   - LLM API endpoints (`generativelanguage.googleapis.com`, `api.openai.com`, `api.deepseek.com`): Required to request AI completions directly from official APIs.
 
 ---
@@ -75,7 +77,9 @@ All configuration settings and cached data are stored locally in your browser's 
 - `sidePanel`: 用于承载右侧常驻交互侧边栏。
 - `downloads`: 用于支持一键导出 Markdown 笔记、双语字幕 TXT 与测验试题包。
 - `scripting` & `tabs`: 用于与当前 Canvas 课程页面安全通信并提取课程公开内容。
-- `host_permissions`: 用于在受支持的 Canvas LMS / Echo360 页面运行提取逻辑，以及直连各大模型官方 API。
+- `activeTab`: 允许用户点击工具栏图标或操作按钮时临时与活动页面建立通信。
+- `optional_host_permissions`: 仅用于支持用户在设置中按需添加并动态授权全球各高校的自定义 Canvas 域名（如 `canvas.harvard.edu` 等），需经浏览器原生弹窗确认后生效。
+- `host_permissions`: 用于在预设的 Canvas LMS / Echo360 页面运行提取逻辑，以及直连各大模型官方 API。
 
 ## 4. 本地工作区访问
 若您通过 File System Access API 绑定了本地文件夹，插件仅用于将您生成的笔记和字幕保存到该指定目录中，绝不会读取或扫描该目录以外的任何其他文件。
